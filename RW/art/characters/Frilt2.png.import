@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8v8dsskg7avn"
-path="res://.godot/imported/newfrilt.png-fee326a570a7e24fb04663d000a79247.ctex"
+uid="uid://b6e3cqg2agcnd"
+path="res://.godot/imported/Frilt2.png-3715096491255941d4e8d37ecff6aa3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/newfrilt.png"
-dest_files=["res://.godot/imported/newfrilt.png-fee326a570a7e24fb04663d000a79247.ctex"]
+source_file="res://art/characters/Frilt2.png"
+dest_files=["res://.godot/imported/Frilt2.png-3715096491255941d4e8d37ecff6aa3c.ctex"]
 
 [params]
 
