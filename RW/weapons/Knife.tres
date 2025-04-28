@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://d3bneyhbpvxvl"]
+
+[ext_resource type="Script" uid="uid://bm27f1hjrk82" path="res://weapons/weapon.gd" id="1_yl53u"]
+[ext_resource type="Texture2D" uid="uid://8la3jmillckd" path="res://art/weapons/Gun.png" id="2_16120"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyjen"]
+atlas = ExtResource("2_16120")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16120"]
+atlas = ExtResource("2_16120")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koqpv"]
+atlas = ExtResource("2_16120")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jmhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyjen")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_16120")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_koqpv")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_yl53u")
+weapon_name = "Knife"
+damage = 5
+sprite = SubResource("SpriteFrames_2jmhl")
+metadata/_custom_type_script = "uid://bm27f1hjrk82"
