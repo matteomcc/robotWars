@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxebru3pjxuw0"]
+
+[ext_resource type="Script" uid="uid://bfhx1mowe3wf8" path="res://scripts/frilt.gd" id="1_f3bxy"]
+[ext_resource type="Texture2D" uid="uid://8v8dsskg7avn" path="res://art/characters/newfrilt.png" id="2_f3bxy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfvuh"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn6ol"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5cpy"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62rl7"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4my1"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6abh0"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8un0"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e58yd"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxmjb"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fduvc"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pclqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfvuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn6ol")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5cpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62rl7")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4my1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6abh0")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8un0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e58yd")
+}],
+"loop": true,
+"name": &"side-back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxmjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fduvc")
+}],
+"loop": true,
+"name": &"side-front",
+"speed": 5.0
+}]
+
+[node name="frilt" type="CharacterBody2D"]
+script = ExtResource("1_f3bxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pclqw")
+animation = &"side-back"
