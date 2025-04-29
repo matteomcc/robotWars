@@ -63,7 +63,7 @@ script = ExtResource("1_f3bxy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pclqw")
-animation = &"move"
+animation = &"idle"
 
 [node name="LeftArm" type="AnimatedSprite2D" parent="."]
 position = Vector2(-14, 0)
@@ -73,7 +73,3 @@ animation = &""
 [node name="RightArm" type="AnimatedSprite2D" parent="."]
 position = Vector2(14, 0)
 sprite_frames = SubResource("SpriteFrames_f3bxy")
-
-[node name="test" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 12)
-rotation = 3.14159
