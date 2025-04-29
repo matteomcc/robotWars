@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxebru3pjxuw0"]
+[gd_scene load_steps=15 format=3 uid="uid://cxebru3pjxuw0"]
 
-[ext_resource type="Script" uid="uid://bfhx1mowe3wf8" path="res://scripts/frilt.gd" id="1_f3bxy"]
-[ext_resource type="Texture2D" uid="uid://b6e3cqg2agcnd" path="res://art/characters/Frilt2.png" id="2_f3bxy"]
+[ext_resource type="Texture2D" uid="uid://dmp7gmyvx1x0c" path="res://art/characters/Frilt23.png" id="2_f3bxy"]
+[ext_resource type="Script" uid="uid://dv5l2sjnvir1a" path="res://scenes/frilt_body.gd" id="2_yfvuh"]
+[ext_resource type="Script" uid="uid://chays8t3jfhyi" path="res://scenes/frilt_wheels.gd" id="3_yfvuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfvuh"]
 atlas = ExtResource("2_f3bxy")
@@ -9,42 +10,35 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn6ol"]
 atlas = ExtResource("2_f3bxy")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5cpy"]
 atlas = ExtResource("2_f3bxy")
-region = Rect2(64, 0, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62rl7"]
 atlas = ExtResource("2_f3bxy")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4my1"]
-atlas = ExtResource("2_f3bxy")
-region = Rect2(64, 64, 64, 64)
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pclqw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yfvuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn6ol")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_fn6ol")
-}, {
-"duration": 0.3,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_u5cpy")
 }, {
-"duration": 0.3,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_62rl7")
-}, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_f4my1")
 }],
 "loop": true,
 "name": &"move",
@@ -56,20 +50,65 @@ animations = []
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f3bxy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4my1"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6abh0"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8un0"]
+atlas = ExtResource("2_f3bxy")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e58yd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4my1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6abh0")
+}, {
+"duration": 0.21,
+"texture": SubResource("AtlasTexture_b8un0")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
 [node name="frilt" type="CharacterBody2D"]
-script = ExtResource("1_f3bxy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="friltBody" type="CharacterBody2D" parent="."]
+script = ExtResource("2_yfvuh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="friltBody"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="friltBody"]
 sprite_frames = SubResource("SpriteFrames_pclqw")
-animation = &"idle"
+animation = &"move"
 
-[node name="LeftArm" type="AnimatedSprite2D" parent="."]
-position = Vector2(-14, 0)
+[node name="LeftArm" type="AnimatedSprite2D" parent="friltBody"]
+position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_yfvuh")
 animation = &""
 
-[node name="RightArm" type="AnimatedSprite2D" parent="."]
-position = Vector2(14, 0)
+[node name="RightArm" type="AnimatedSprite2D" parent="friltBody"]
+position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_f3bxy")
+flip_h = true
+
+[node name="friltWheels" type="CharacterBody2D" parent="."]
+script = ExtResource("3_yfvuh")
+
+[node name="Wheels" type="AnimatedSprite2D" parent="friltWheels"]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_e58yd")
+animation = &"idle"
