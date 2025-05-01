@@ -16,8 +16,35 @@ func _ready():
 	var Knife = preload("res://weapons/Knife.tres")
 
 	equip_weapon(0, Gun) 
-	equip_weapon(1, Knife) 
+	equip_weapon(1, Gun) 
 
+func fire_weapon(slot_index: int):
+	var weapon = equipped_weapons[slot_index]
+	if weapon == null or weapon.type != "Ranged":
+		return
+
+	var bullet_scn = weapon.bullet_scene
+	if bullet_scn == null:
+		print("No bullet scene assigned to weapon.")
+		return
+
+	# Choose correct arm and fire point
+	var arm = "left" if slot_index == 0 else "right"
+	var fire_point = weapon_sprites[arm].get_node("FirePoint")
+
+	var bullet = bullet_scn.instantiate()
+	bullet.global_position = fire_point.global_position
+	
+	bullet.rotation = global_rotation
+	
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - global_position).normalized()
+	
+	bullet.linear_velocity = direction * 600
+	
+	bullet.gravity_scale = 0
+	get_tree().current_scene.add_child(bullet)
+	
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -29,10 +56,12 @@ func player_movement(delta):
 	rotation = direction.angle() + PI/2
 	
 	if Input.is_action_pressed("ui_attack_left"):
+		fire_weapon(0)
 		play_attack_anim(1)
 	else:
 		play_attack_anim(3)
 	if Input.is_action_pressed("ui_attack_right"):
+		fire_weapon(1)
 		play_attack_anim(2)
 	else:
 		play_attack_anim(4)

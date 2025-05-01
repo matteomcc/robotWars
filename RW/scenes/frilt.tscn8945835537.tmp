@@ -102,19 +102,10 @@ position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_yfvuh")
 animation = &""
 
-[node name="FirePoint" type="Marker2D" parent="friltBody/LeftArm"]
-z_index = -2
-position = Vector2(-2, -19)
-rotation = -1.5708
-
 [node name="RightArm" type="AnimatedSprite2D" parent="friltBody"]
 position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_f3bxy")
 flip_h = true
-
-[node name="FirePoint" type="Marker2D" parent="friltBody/RightArm"]
-z_index = -2
-position = Vector2(2, -19)
 
 [node name="friltWheels" type="CharacterBody2D" parent="."]
 position = Vector2(263, 145)
@@ -126,5 +117,4 @@ sprite_frames = SubResource("SpriteFrames_e58yd")
 animation = &"idle"
 
 [node name="Bullet" parent="." instance=ExtResource("3_fn6ol")]
-visible = false
 position = Vector2(262, 14)

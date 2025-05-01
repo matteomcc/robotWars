@@ -42,4 +42,5 @@ script = ExtResource("1_yl53u")
 weapon_name = "Knife"
 damage = 5
 sprite = SubResource("SpriteFrames_2jmhl")
+type = "Melee"
 metadata/_custom_type_script = "uid://bm27f1hjrk82"

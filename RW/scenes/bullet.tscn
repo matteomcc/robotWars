@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6awm36qgiak2"]
+
+[ext_resource type="Texture2D" uid="uid://ciuatxvnu3emh" path="res://art/weapons/machinegun-8.png.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://criaf3dqms62c" path="res://scripts/bullet.gd" id="1_y25gk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(4, 2)
+
+[node name="Bullet" type="RigidBody2D"]
+script = ExtResource("1_y25gk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="Machinegun-8_png" type="Sprite2D" parent="."]
+z_index = -4
+position = Vector2(0, 6)
+scale = Vector2(0.12, 0.125)
+texture = ExtResource("1_mkf8s")
