@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://dlm655m1yca2p"]
+[gd_scene load_steps=3 format=3 uid="uid://dlm655m1yca2p"]
+
+[ext_resource type="PackedScene" uid="uid://cxebru3pjxuw0" path="res://scenes/frilt.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://dlgr7kl20jdeu" path="res://scenes/dwanye.tscn" id="2_4wyf3"]
 
 [node name="world" type="Node2D"]
+
+[node name="Fritl" type="CharacterBody2D" parent="."]
+
+[node name="frilt" parent="Fritl" instance=ExtResource("1_rwgxs")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="DwanyeEnemy" parent="CharacterBody2D" instance=ExtResource("2_4wyf3")]
+position = Vector2(260, 35)

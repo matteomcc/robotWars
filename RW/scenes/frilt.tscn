@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dmp7gmyvx1x0c" path="res://art/characters/Frilt23.png" id="2_f3bxy"]
 [ext_resource type="Script" uid="uid://dv5l2sjnvir1a" path="res://scripts/frilt_body.gd" id="2_yfvuh"]
-[ext_resource type="PackedScene" uid="uid://b6awm36qgiak2" path="res://scenes/bullet.tscn" id="3_fn6ol"]
+[ext_resource type="PackedScene" uid="uid://b6awm36qgiak2" path="res://bullet.tscn" id="3_fn6ol"]
 [ext_resource type="Script" uid="uid://chays8t3jfhyi" path="res://scripts/frilt_wheels.gd" id="3_yfvuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfvuh"]

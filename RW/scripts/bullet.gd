@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var time_to_despawn: float = 0.2
+@export var time_to_despawn: float = 2
 var timer: float = 0.0
 
 func _ready():

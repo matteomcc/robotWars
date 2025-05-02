@@ -43,4 +43,6 @@ weapon_name = "Knife"
 damage = 5
 sprite = SubResource("SpriteFrames_2jmhl")
 type = "Melee"
+bullet_speed = 600.0
+bps = 5.0
 metadata/_custom_type_script = "uid://bm27f1hjrk82"
