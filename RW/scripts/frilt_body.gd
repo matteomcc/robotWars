@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 const speed = 150
 
@@ -54,7 +54,6 @@ func player_movement(delta):
 	var direction = (mouse_pos - global_position).normalized()
 	
 	rotation = direction.angle() + PI/2
-	
 	if Input.is_action_pressed("ui_attack_left"):
 		fire_weapon(0)
 		play_attack_anim(1)
@@ -68,43 +67,23 @@ func player_movement(delta):
 	
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
 		play_anim(1)
-		velocity.x = speed*0.7
-		velocity.y = speed*-0.7
 	elif Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
 		play_anim(1)
-		velocity.x = speed*0.7
-		velocity.y = speed*0.7
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_up"):
 		play_anim(1)
-		velocity.x = speed*-0.7
-		velocity.y = speed*-0.7
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
 		play_anim(1)
-		velocity.x = speed*-0.7
-		velocity.y = speed*0.7
 	elif Input.is_action_pressed("ui_right"):
 		play_anim(1)
-		velocity.x = speed
-		velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
 		play_anim(1)
-		velocity.x = -speed
-		velocity.y = 0
 	elif Input.is_action_pressed("ui_down"):
 		play_anim(1)
-		velocity.x = 0
-		velocity.y = speed
 	elif Input.is_action_pressed("ui_up"):
 		play_anim(1)
-		velocity.x = 0
-		velocity.y = -speed
 	else:
 		play_anim(0)
-		velocity.x = 0
-		velocity.y = 0
 	
-	move_and_slide()
-
 func play_anim(movement):
 	var body = $AnimatedSprite2D
 
@@ -113,12 +92,17 @@ func play_anim(movement):
 	else:
 		body.play("idle")
 
+var held = false
 
 func play_attack_anim(attack):
 	var anim = $AnimatedSprite2D
-	
-	if attack == 1:
-		weapon_sprites["left"].play("move")
+	if attack == 1 and held == false:
+		if equipped_weapons[0].weapon_name == "Gun":
+			weapon_sprites["left"].play("move")
+			await get_tree().create_timer(1).timeout
+			weapon_sprites["left"].play("spun_up")
+			held = true
+
 	elif attack == 3:
 		weapon_sprites["left"].play("idle")
 	if attack == 2:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxebru3pjxuw0"]
+[gd_scene load_steps=16 format=3 uid="uid://cxebru3pjxuw0"]
 
-[ext_resource type="Script" uid="uid://bhf2lvtdqqx80" path="res://scenes/frilt.gd" id="1_u5cpy"]
 [ext_resource type="Texture2D" uid="uid://dmp7gmyvx1x0c" path="res://art/characters/Frilt23.png" id="2_f3bxy"]
 [ext_resource type="Script" uid="uid://dv5l2sjnvir1a" path="res://scripts/frilt_body.gd" id="2_yfvuh"]
 [ext_resource type="PackedScene" uid="uid://b6awm36qgiak2" path="res://bullet.tscn" id="3_fn6ol"]
@@ -86,16 +85,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u5cpy"]
-radius = 28.0
-height = 56.0
-
 [node name="frilt" type="CharacterBody2D"]
-position = Vector2(147, 124)
-script = ExtResource("1_u5cpy")
 
 [node name="friltBody" type="Node2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(263, 145)
 script = ExtResource("2_yfvuh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="friltBody"]
@@ -122,7 +115,7 @@ z_index = -2
 position = Vector2(2, -19)
 
 [node name="friltWheels" type="Node2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(263, 145)
 script = ExtResource("3_yfvuh")
 
 [node name="Wheels" type="AnimatedSprite2D" parent="friltWheels"]
@@ -135,5 +128,3 @@ visible = false
 position = Vector2(262, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("CapsuleShape2D_u5cpy")

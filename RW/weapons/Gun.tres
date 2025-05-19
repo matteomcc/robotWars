@@ -48,10 +48,10 @@ region = Rect2(64, 128, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_vyfek"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_6apb6")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_gyw5g")
 }],
 "loop": true,
@@ -68,41 +68,43 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_weib5")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_q0geu")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_lk2yx")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6hp2x")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_vyfek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p26e4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vyfek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p26e4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vyfek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p26e4")
 }],
 "loop": true,
 "name": &"move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_vyfek")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_p26e4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_vyfek")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_p26e4")
+}],
+"loop": true,
+"name": &"spun_up",
 "speed": 5.0
 }]
 
 [resource]
 script = ExtResource("1_wih57")
-weapon_name = ""
+weapon_name = "Gun"
 damage = 0
 sprite = SubResource("SpriteFrames_vyfek")
 type = "Ranged"
